@@ -12,13 +12,15 @@ fetch(`https://jsonplaceholder.typicode.com/users/1`)
        let website = document.createElement('span');
        let company = document.createElement('span');
 
-       name.textContent = data.name;
-       username.textContent = data.username;
-       address.textContent = data.name;
-       email.textContent = data.email;
-       phone.textContent = data.phone;
-       website.textContent = data.website;
-       company.textContent = data.company.name;
+       name.textContent = `${data.name}`;
+       username.textContent = `Username: ${data.username}`;
+       address.textContent = `Address: ${data.name}`;
+       email.textContent = `Email: ${data.email}`;
+       phone.textContent = `Phone: ${data.phone}`;
+       website.textContent = `Website: ${data.website}`;
+       company.textContent = `Company: ${data.company.name}`;
+
+       name.classList.add('h4')
 
        userCard.append(name, username, address, email, phone, website, company)
     })

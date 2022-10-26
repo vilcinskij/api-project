@@ -1,32 +1,31 @@
-.carousel-inner{
-    display: flex;
+body {
+  background-color: bisque;
 }
 
-.carousel-item{
-    display: block;
-    margin-right: 0;
-    flex: 0 0 calc(100%/3);
+.carousel-inner {
+  display: flex;
 }
 
-.carousel-inner{
-    padding: 1em;
+.carousel-item {
+  display: block;
+  margin-right: 0;
+  flex: 0 0 33.3333333333%;
 }
 
-.card{
-    margin: 0.5em;
+.carousel-inner {
+  padding: 1em;
 }
 
-
-
-
-
-
-.comments-list{
-    display: flex;
+.card {
+  margin: 0.5em;
 }
 
-.comment-item{
-    display: block;
-    margin-right: 0;
-    flex: 0 0 calc(100%/4);
+.comments-list {
+  display: flex;
 }
+
+.comment-item {
+  display: block;
+  margin-right: 0;
+  flex: 0 0 25%;
+}/*# sourceMappingURL=style.css.map */

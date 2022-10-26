@@ -1,6 +1,6 @@
 
 
-API nuoroda: https://jsonplaceholder.typicode.com
+API nuoroda: <a target="_blank" href="https://jsonplaceholder.typicode.com">https://jsonplaceholder.typicode.com</a> 
 
 1. Sukurti puslapį, kuriame bus atvaizduojami įrašai (posts.html). Kiekvienas įrašas turi:<br>
   1.1. Pavadinimą. <br>
