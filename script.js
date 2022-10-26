@@ -2,7 +2,7 @@
 function init() {
     let postsContainer = document.querySelector('#posts-container');
 
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=5&_embed=comments&_expan=user')
+    fetch('https://jsonplaceholder.typicode.com/posts?_limit=5&_embed=comments&_expand=user')
         .then(res => res.json())
         .then(posts => {
             posts.map(post => {
@@ -17,47 +17,35 @@ function init() {
                 let commentList = document.createElement('div');
 
 
-                commentsWrapper.append(commentList)
+                let userName = post.user.name;
+                postAuthor.href = '#';
 
-                let userId = post.userId;
+                post.comments.map(comment => {
+                    let commentItem = document.createElement('div');
+                    let coomentTitle = document.createElement('h5');
+                    let commentAuthor = document.createElement('a');
+                    let coomenContent = document.createElement('p');
 
-                fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
-                    .then(res => res.json())
-                    .then(user => {
-                        let userName = user.name;
-                        postAuthor.textContent = userName;
-                        postAuthor.href = '#';
-                    })
+                    coomentTitle.textContent = comment.name;
+                    commentAuthor.textContent = comment.email;
+                    coomenContent.textContent = comment.body;
 
+                    commentItem.append(coomentTitle, commentAuthor, coomenContent)
+                    commentList.append(commentItem)
 
-                fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
-                    .then(res => res.json())
-                    .then(coments => {
-                        coments.map(comment => {
-                            let commentItem = document.createElement('div');
-                            let coomentTitle = document.createElement('h5');
-                            let commentAuthor = document.createElement('a');
-                            let coomenContent = document.createElement('p');
-
-                            coomentTitle.textContent = comment.name;
-                            commentAuthor.textContent = comment.email;
-                            coomenContent.textContent = comment.body;
-
-                            commentList.append(coomentTitle, commentAuthor, coomenContent)
-                        })
-                    })
-
-
-
+                    
+                    commentItem.classList.add('card', 'm-3', 'p-3');
+                })
 
                 postTitle.textContent = post.title;
+                postAuthor.textContent = userName;
                 postContent.textContent = post.body;
-                postItem.append(postTitle, postContent, postAuthor, commentsWrapper);
+
+                commentsWrapper.append(commentList)
+                postItem.append(postTitle, postAuthor, postContent, commentsWrapper);
                 postsContainer.append(postItem);
 
 
-
-                commentList.classList.add('card', 'm-3', 'p-3');
                 postItem.classList.add('card', 'm-3', 'p-3');
                 postItem.style.width = '800px';
             })
