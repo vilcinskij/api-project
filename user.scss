@@ -1,3 +1,13 @@
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
 body {
     background-color: bisque;
 }
@@ -5,4 +15,10 @@ body {
 #user-card {
     max-width: 400px;
     background-color: antiquewhite;
+}
+
+#posts-wrapper {
+    .card:hover {
+        background-color: antiquewhite;
+    }
 }
