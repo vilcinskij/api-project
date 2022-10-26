@@ -33,7 +33,7 @@ function init() {
                     commentItem.append(coomentTitle, commentAuthor, coomenContent)
                     commentList.append(commentItem)
 
-                    
+
                     commentItem.classList.add('card', 'm-3', 'p-3');
                 })
 
@@ -48,6 +48,7 @@ function init() {
 
                 postItem.classList.add('card', 'm-3', 'p-3');
                 postItem.style.width = '800px';
+                postItem.style.margin = 'auto';
             })
         })
 

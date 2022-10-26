@@ -20,3 +20,8 @@ API nuoroda: https://jsonplaceholder.typicode.com
   3.5. Telefono numeris.<br>
   3.6. Internetinio puslapio adresas.<br>
   3.7. Įmonės, kurioje dirba, pavadinimas.<br>
+
+  4. Šiame puslapyje turės būti atvaizduojama:<br>
+  4.1. Visi vartotojo parašyti įrašai (posts). Post'ų įrašuose nereikia atvaizduoti komentarų. Kiekvienas post'as turi turėti nuorodą.<br>
+  4.2. Visi vartotojo sukurti foto albumai. Kiekvienas albumas turės:<br>
+    4.2.1. Albumo pavadinimą, kuris turi būti nuoroda. Kol kas nuoroda gali niekur nevesti.<br>
