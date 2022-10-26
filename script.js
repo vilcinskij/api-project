@@ -2,7 +2,7 @@
 function init() {
     let postsContainer = document.querySelector('#posts-container');
 
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=5&_embed=comments&_expand=user')
+    fetch('https://jsonplaceholder.typicode.com/posts?_embed=comments&_expand=user')
         .then(res => res.json())
         .then(posts => {
             posts.map(post => {
@@ -33,8 +33,8 @@ function init() {
                     commentItem.append(coomentTitle, commentAuthor, coomenContent)
                     commentList.append(commentItem)
 
-
-                    commentItem.classList.add('card', 'm-3', 'p-3');
+                    commentList.classList.add('comments-list');
+                    commentItem.classList.add('card', 'm-3', 'p-3', 'comment-item');
                 })
 
                 postTitle.textContent = post.title;
@@ -47,8 +47,7 @@ function init() {
 
 
                 postItem.classList.add('card', 'm-3', 'p-3');
-                postItem.style.width = '800px';
-                postItem.style.margin = 'auto';
+                // postItem.style.margin = 'auto';
             })
         })
 
@@ -57,3 +56,8 @@ function init() {
 
 init()
 
+// function capFirs(string) {
+//     return string.charAt(0).toUpperCase() + string.slice(1);
+// }
+
+// capFirs(string)
