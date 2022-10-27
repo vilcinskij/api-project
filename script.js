@@ -2,7 +2,7 @@
 function init() {
     let postsContainer = document.querySelector('#posts-container');
 
-    fetch('https://jsonplaceholder.typicode.com/posts?_embed=comments&_expand=user')
+    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user')
         .then(res => res.json())
         .then(posts => {
             posts.map(post => {
@@ -47,14 +47,28 @@ function init() {
 
 
                 postItem.classList.add('card', 'm-3', 'p-3');
-                // postItem.style.margin = 'auto';
             })
         })
-
-
 }
 
 init()
+
+
+fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function capFirs(string) {
 //     return string.charAt(0).toUpperCase() + string.slice(1);

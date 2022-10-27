@@ -26,7 +26,30 @@ API nuoroda: <a target="_blank" href="https://jsonplaceholder.typicode.com">http
   4.2. Visi vartotojo sukurti foto albumai. Kiekvienas albumas turės:<br>
     4.2.1. Albumo pavadinimą, kuris turi būti nuoroda. Kol kas nuoroda gali niekur nevesti.<br>
 
-    5. Pagrindiniame (index.html) puslapyje pridėti skiltį, kurioje atvaizduojamas albumų sąrašas. Kiekvienas albumas turės:<br>
+  5. Pagrindiniame (index.html) puslapyje pridėti skiltį, kurioje atvaizduojamas albumų sąrašas. Kiekvienas albumas turės:<br>
   5.1. Pavadinimą, o paspaudus ant jo - nukreipiama į albumą (album.html).<br>
   5.2. Albumo autoriaus vardą.<br>
   5.3. Nuotrauką.<br>
+
+  6. Sukurti naują puslapį album.html ir jame atvaizduoti:
+  6.1. Albumo pavadinimą.
+  6.2. Album autoriaus vardą. Paspaudus ant vardo - nukreipiama į autoriaus puslapį.
+  6.3. Skiltis, kurioje atvaizduojamos visos albumo nuotraukos.
+  
+7. Sukurti naują puslapį post.html ir jame atvaizduoti:
+  7.1. Įrašo (post) pavadinimą.
+  7.2. Autoriaus vardą. Paspaudus ant autoriaus vardo, turėtų atidaryti autoriaus puslapį.
+  7.3. Įrašo turinį.
+  7.4. Įrašo komentarus. Komentarai turi būti atvaizduojami tokiu pačiu principu kaip ir pagrindiniame puslapyje.
+  7.5. Nuoroda „Kiti autoriaus įrašai", kurią paspaudus bus nukreipiama į naują puslapį posts.html. Jame bus atvaizduojami visi šio vartotojo įrašai.
+
+8. Sukurti vartotojų puslapį (users.html), kuriame būtų atvaizduotas vartotojų sąrašas.
+  8.1. Prie vartotojo turėtu būti jo vardas ir parašytų post'ų skaičius.
+  8.2. Paspaudus ant vartotojo - nukreipiama į jo puslapį.
+
+9. Tokiu pačiu principu, kaip ir vartotojų puslapį, sukurti puslapį albumams (albums.html).
+  9.1. Prie kiekvieno albumo turi būti:
+    9.1.1. Parašytas jo pavadinimas.
+    9.1.2. Parašytas vartotojo, sukūrusio šį albumą, vardas.
+    9.1.3. Albume esančių nuotraukų skaičius.
+    9.1.4. Viena nuotrauka

@@ -1,4 +1,4 @@
-const userId = 10;
+const userId = 9;
 
 let userCard = document.querySelector('#user-card');
 let postsWrapper = document.querySelector('#posts-wrapper');
@@ -7,10 +7,10 @@ let postsHeader = document.createElement('h4')
 postsHeader.textContent = 'User posts'
 postsWrapper.prepend(postsHeader);
 
-fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=photos`)
+fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts`)
    .then(res => res.json())
    .then(data => {
-      console.log(data);
+      // console.log(data);
       let name = document.createElement('span');
       let username = document.createElement('span');
       let address = document.createElement('span');
@@ -48,6 +48,8 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=
    })
 
 
-fetch(`https://jsonplaceholder.typicode.com/albums/${userId}/photos`)
+fetch(`https://jsonplaceholder.typicode.com/users/${userId}/albums`)
    .then(res => res.json())
-   .then(data => { })
+   .then(albums => { 
+      const albumsWrapper = document.querySelector
+   })
