@@ -31,25 +31,25 @@ API nuoroda: <a target="_blank" href="https://jsonplaceholder.typicode.com">http
   5.2. Albumo autoriaus vardą.<br>
   5.3. Nuotrauką.<br>
 
-  6. Sukurti naują puslapį album.html ir jame atvaizduoti:
-  6.1. Albumo pavadinimą.
-  6.2. Album autoriaus vardą. Paspaudus ant vardo - nukreipiama į autoriaus puslapį.
-  6.3. Skiltis, kurioje atvaizduojamos visos albumo nuotraukos.
+  6. Sukurti naują puslapį album.html ir jame atvaizduoti:<br>
+  6.1. Albumo pavadinimą.<br>
+  6.2. Album autoriaus vardą. Paspaudus ant vardo - nukreipiama į autoriaus puslapį.<br>
+  6.3. Skiltis, kurioje atvaizduojamos visos albumo nuotraukos.<br>
   
-7. Sukurti naują puslapį post.html ir jame atvaizduoti:
-  7.1. Įrašo (post) pavadinimą.
-  7.2. Autoriaus vardą. Paspaudus ant autoriaus vardo, turėtų atidaryti autoriaus puslapį.
-  7.3. Įrašo turinį.
-  7.4. Įrašo komentarus. Komentarai turi būti atvaizduojami tokiu pačiu principu kaip ir pagrindiniame puslapyje.
-  7.5. Nuoroda „Kiti autoriaus įrašai", kurią paspaudus bus nukreipiama į naują puslapį posts.html. Jame bus atvaizduojami visi šio vartotojo įrašai.
+7. Sukurti naują puslapį post.html ir jame atvaizduoti:<br>
+  7.1. Įrašo (post) pavadinimą.<br>
+  7.2. Autoriaus vardą. Paspaudus ant autoriaus vardo, turėtų atidaryti autoriaus puslapį.<br>
+  7.3. Įrašo turinį.<br>
+  7.4. Įrašo komentarus. Komentarai turi būti atvaizduojami tokiu pačiu principu kaip ir pagrindiniame puslapyje.<br>
+  7.5. Nuoroda „Kiti autoriaus įrašai", kurią paspaudus bus nukreipiama į naują puslapį posts.html. Jame bus atvaizduojami visi šio vartotojo įrašai.<br>
 
-8. Sukurti vartotojų puslapį (users.html), kuriame būtų atvaizduotas vartotojų sąrašas.
-  8.1. Prie vartotojo turėtu būti jo vardas ir parašytų post'ų skaičius.
-  8.2. Paspaudus ant vartotojo - nukreipiama į jo puslapį.
+8. Sukurti vartotojų puslapį (users.html), kuriame būtų atvaizduotas vartotojų sąrašas.<br>
+  8.1. Prie vartotojo turėtu būti jo vardas ir parašytų post'ų skaičius.<br>
+  8.2. Paspaudus ant vartotojo - nukreipiama į jo puslapį.<br>
 
-9. Tokiu pačiu principu, kaip ir vartotojų puslapį, sukurti puslapį albumams (albums.html).
-  9.1. Prie kiekvieno albumo turi būti:
-    9.1.1. Parašytas jo pavadinimas.
-    9.1.2. Parašytas vartotojo, sukūrusio šį albumą, vardas.
-    9.1.3. Albume esančių nuotraukų skaičius.
-    9.1.4. Viena nuotrauka
+9. Tokiu pačiu principu, kaip ir vartotojų puslapį, sukurti puslapį albumams (albums.html).<br>
+  9.1. Prie kiekvieno albumo turi būti:<br>
+    9.1.1. Parašytas jo pavadinimas.<br>
+    9.1.2. Parašytas vartotojo, sukūrusio šį albumą, vardas.<br>
+    9.1.3. Albume esančių nuotraukų skaičius.<br>
+    9.1.4. Viena nuotrauka<br>
