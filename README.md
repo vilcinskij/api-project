@@ -25,3 +25,8 @@ API nuoroda: <a target="_blank" href="https://jsonplaceholder.typicode.com">http
   4.1. Visi vartotojo parašyti įrašai (posts). Post'ų įrašuose nereikia atvaizduoti komentarų. Kiekvienas post'as turi turėti nuorodą.<br>
   4.2. Visi vartotojo sukurti foto albumai. Kiekvienas albumas turės:<br>
     4.2.1. Albumo pavadinimą, kuris turi būti nuoroda. Kol kas nuoroda gali niekur nevesti.<br>
+
+    5. Pagrindiniame (index.html) puslapyje pridėti skiltį, kurioje atvaizduojamas albumų sąrašas. Kiekvienas albumas turės:<br>
+  5.1. Pavadinimą, o paspaudus ant jo - nukreipiama į albumą (album.html).<br>
+  5.2. Albumo autoriaus vardą.<br>
+  5.3. Nuotrauką.<br>
