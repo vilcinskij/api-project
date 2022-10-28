@@ -61,13 +61,13 @@ API nuoroda: <a target="_blank" href="https://jsonplaceholder.typicode.com">http
   10.4. Posts / pranešimų puslapis.<br>
 
 11. Sukurti paieškos funkcionalumą navigacijos elemente:<br>
-11.1. Navigacijos elemente sukurti formą, kuri turi text tipo input elementą (nepamiršti pridėti name atributą).<br>
-11.2. Formos submit metu, naudojant action atributą, nukreipti į naują puslapį (search.html).<br>
-
-11.3. Šiame puslapyje atvaizduoti paieškos rezultatą.<br>
-11.3.1. Jeigu nėra tinkamų rezultatų, tai parašyti jog rezultatų pagal užklausą nerasta.<br>
-
-11.4. Filtruoti pagal šias kategorijas:<br>
-11.4.1. Vartotojus.<br>
-11.4.2. Postus.<br>
-11.4.2. Albumus.<br>
+  11.1. Navigacijos elemente sukurti formą, kuri turi text tipo input elementą (nepamiršti pridėti name atributą).<br>
+  11.2. Formos submit metu, naudojant action atributą, nukreipti į naują puslapį (search.html).<br>
+  
+  11.3. Šiame puslapyje atvaizduoti paieškos rezultatą.<br>
+    11.3.1. Jeigu nėra tinkamų rezultatų, tai parašyti jog rezultatų pagal užklausą nerasta.<br>
+  
+  11.4. Filtruoti pagal šias kategorijas:<br>
+    11.4.1. Vartotojus.<br>
+    11.4.2. Postus.<br>
+    11.4.2. Albumus.<br>
