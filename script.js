@@ -1,8 +1,14 @@
+const albumsWrapper = document.querySelector('#albums-wrapper');
+const albumHeader = document.createElement('h4');
+albumHeader.textContent = 'User albums'
+albumsWrapper.prepend(albumHeader);
+
+
 
 function init() {
     let postsContainer = document.querySelector('#posts-container');
 
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user')
+    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user&_embed=albums')
         .then(res => res.json())
         .then(posts => {
             posts.map(post => {
