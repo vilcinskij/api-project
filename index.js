@@ -1,8 +1,7 @@
 const albumsWrapper = document.querySelector('#albums-wrapper');
 const albumHeader = document.createElement('h4');
-albumHeader.textContent = 'User albums'
+albumHeader.textContent = 'Users albums'
 albumsWrapper.prepend(albumHeader);
-
 
 
 function init() {
@@ -12,8 +11,6 @@ function init() {
         .then(res => res.json())
         .then(posts => {
             posts.map(post => {
-                console.log(post);
-
                 let postItem = document.createElement('div');
                 let postTitle = document.createElement('h4');
                 let postContent = document.createElement('p');
@@ -21,7 +18,6 @@ function init() {
 
                 let commentsWrapper = document.createElement('div');
                 let commentList = document.createElement('div');
-
 
                 let userName = post.user.name;
                 postAuthor.href = `./user.html?user_id=${post.userId}`;
@@ -34,6 +30,7 @@ function init() {
 
                     coomentTitle.textContent = comment.name;
                     commentAuthor.textContent = comment.email;
+                    commentAuthor.href = `mailto:${comment.email}`;
                     coomenContent.textContent = comment.body;
 
                     commentItem.append(coomentTitle, commentAuthor, coomenContent)
@@ -60,7 +57,31 @@ function init() {
 init()
 
 
-fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
+fetch('https://jsonplaceholder.typicode.com/albums?_limit=30&_embed=photos&_expand=user')
+    .then(res => res.json())
+    .then(albums => {
+        console.log(albums);
+        albums.map(album => {
+            const albumItem = document.createElement('div');
+            const albumLink = document.createElement('a');
+            const albumTitle = document.createElement('h5');
+            const albumAuthor = document.createElement('span');
+            const albumCover = document.createElement('img');
+
+            albumLink.href = `./album.html?album_id=${album.id}`
+            albumTitle.textContent = album.title
+            albumAuthor.textContent = album.user.name
+            const randomIndex = Math.floor(Math.random() * album.photos.length)
+            albumCover.src = album.photos[randomIndex].thumbnailUrl
+
+            albumLink.append(albumTitle)
+            albumItem.append(albumCover, albumLink, albumAuthor)
+            albumsWrapper.append(albumItem);
+
+            albumItem.classList.add('card')
+
+        })
+    })
 
 
 

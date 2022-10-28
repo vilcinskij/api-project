@@ -21,10 +21,6 @@ body {
 }
 
 
-
-
-
-
 .comments-list{
     display: flex;
 }
@@ -33,4 +29,11 @@ body {
     display: block;
     margin-right: 0;
     flex: 0 0 calc(100%/4);
+}
+
+#albums-wrapper {
+    .card {
+        max-width: 10em;
+
+    }
 }

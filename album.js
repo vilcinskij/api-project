@@ -22,16 +22,16 @@ fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embe
 
         albumTitle.textContent = album.title;
         albumAuthor.textContent = album.user.name;
-        albumAuthor.href = '#'
+        albumAuthor.href = `./user.html?user_id=${album.user.id}`
         albumCard.append(albumTitle, albumAuthor);
 
         album.photos.map(img => {
             let albumPhoto = document.createElement('img');
             albumPhoto.src = img.thumbnailUrl;
-            albumPhotos.append(albumPhoto);
+            albumPhotos.prepend(albumPhoto);
         })
 
     })
 
 albumCard.classList.add('card', 'mt-5');
-albumPhotos.classList.add('card', 'mt-5');
+albumPhotos.classList.add('card', 'mt-5', 'p-3');

@@ -25,7 +25,8 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=
 
       const name = document.createElement('span');
       const username = document.createElement('span');
-      const address = document.createElement('span');
+      const address = document.createElement('a');
+      address.href = `https://maps.google.com/?q=${user.address.geo.lat},${user.address.geo.lng}`
       const email = document.createElement('span');
       const phone = document.createElement('span');
       const website = document.createElement('span');
@@ -55,12 +56,12 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=
       })
 
 
-      user.albums.map(post => {
+      user.albums.map(album => {
          const postItem = document.createElement('li');
          const postTitle = document.createElement('a');
 
-         postTitle.href = `./album.html?album_id=${userId}`
-         postTitle.textContent = post.title;
+         postTitle.href = `./album.html?album_id=${album.id}`
+         postTitle.textContent = album.title;
 
          postItem.append(postTitle);
          postList.append(postItem);

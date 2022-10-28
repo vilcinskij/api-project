@@ -28,4 +28,8 @@ body {
   display: block;
   margin-right: 0;
   flex: 0 0 25%;
+}
+
+#albums-wrapper .card {
+  max-width: 10em;
 }/*# sourceMappingURL=index.css.map */

@@ -1,13 +1,3 @@
-a {
-  text-decoration: none;
-  color: black;
-  font-size: 1.25rem;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
 #user-card {
   max-width: 520px;
   background-color: antiquewhite;
