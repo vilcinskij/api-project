@@ -1,4 +1,6 @@
-const userId = 9;
+const queryParams = document.location.search;
+const urlParams = new URLSearchParams(queryParams);
+const userId = urlParams.get('user_id');
 
 const userCard = document.querySelector('#user-card');
 const postsWrapper = document.querySelector('#posts-wrapper');
@@ -17,8 +19,10 @@ albumsWrapper.prepend(albumHeader);
 
 fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=albums`)
    .then(res => res.json())
-   .then(data => {
-      // console.log(data);
+   .then(user => {
+      console.log(user);
+      document.title = user.name
+
       const name = document.createElement('span');
       const username = document.createElement('span');
       const address = document.createElement('span');
@@ -27,15 +31,15 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=
       const website = document.createElement('span');
       const company = document.createElement('span');
 
-      name.textContent = `${data.name}`;
-      username.textContent = `Username: ${data.username}`;
-      address.textContent = `Address: ${data.address.suite} ${data.address.street}, ${data.address.city}, ${data.address.zipcode}`;
-      email.textContent = `Email: ${data.email}`;
-      phone.textContent = `Phone: ${data.phone}`;
-      website.textContent = `Website: ${data.website}`;
-      company.textContent = `Company: ${data.company.name}`;
+      name.textContent = `${user.name}`;
+      username.textContent = `Username: ${user.username}`;
+      address.textContent = `Address: ${user.address.suite} ${user.address.street}, ${user.address.city}, ${user.address.zipcode}`;
+      email.textContent = `Email: ${user.email}`;
+      phone.textContent = `Phone: ${user.phone}`;
+      website.textContent = `Website: ${user.website}`;
+      company.textContent = `Company: ${user.company.name}`;
 
-      data.posts.map(post => {
+      user.posts.map(post => {
          const postItem = document.createElement('div');
          const postTitle = document.createElement('a');
          const postContent = document.createElement('p');
@@ -51,7 +55,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=
       })
 
 
-      data.albums.map(post => {
+      user.albums.map(post => {
          const postItem = document.createElement('li');
          const postTitle = document.createElement('a');
 

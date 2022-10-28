@@ -8,7 +8,7 @@ albumsWrapper.prepend(albumHeader);
 function init() {
     let postsContainer = document.querySelector('#posts-container');
 
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user&_embed=albums')
+    fetch('https://jsonplaceholder.typicode.com/posts?_embed=comments&_expand=user&_embed=albums')
         .then(res => res.json())
         .then(posts => {
             posts.map(post => {
@@ -24,7 +24,7 @@ function init() {
 
 
                 let userName = post.user.name;
-                postAuthor.href = '#';
+                postAuthor.href = `./user.html?user_id=${post.userId}`;
 
                 post.comments.map(comment => {
                     let commentItem = document.createElement('div');

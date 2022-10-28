@@ -13,12 +13,16 @@ fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embe
     .then(res => res.json())
     .then(album => {
         console.log(album);
+
+        document.title = album.title
+
+
         let albumTitle = document.createElement('h2');
         let albumAuthor = document.createElement('a');
-        
+
         albumTitle.textContent = album.title;
         albumAuthor.textContent = album.user.name;
-        albumAuthor.href= '#'
+        albumAuthor.href = '#'
         albumCard.append(albumTitle, albumAuthor);
 
         album.photos.map(img => {
