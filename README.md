@@ -17,7 +17,7 @@ API nuoroda: <a target="_blank" href="https://jsonplaceholder.typicode.com">http
   3.2. Vartotojo vardas / nick'as.<br>
   3.3. El. paštas.<br>
   3.4. Adresas, kuris turės gatvę, namo numerį, miestą, pašto kodą. Paspaudus ant adreso, pagal koordinates, turėtų atidaryti šios vietos Google Maps.<br>
-  3.5. Telefono numeris.<br>
+  <style color = green> 3.5. Telefono numeris.<br> </style>
   3.6. Internetinio puslapio adresas.<br>
   3.7. Įmonės, kurioje dirba, pavadinimas.<br>
 
