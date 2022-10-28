@@ -53,3 +53,9 @@ API nuoroda: <a target="_blank" href="https://jsonplaceholder.typicode.com">http
     9.1.2. Parašytas vartotojo, sukūrusio šį albumą, vardas.<br>
     9.1.3. Albume esančių nuotraukų skaičius.<br>
     9.1.4. Viena nuotrauka<br>
+
+10. Sukurti navigacijos elementą, kuris nukreips į puslapius:<br>
+  10.1. Home / pagrindinis puslapis.<br>
+  10.2. Users / vartotojų puslapis.<br>
+  10.3. Albums / albumų puslapis.<br>
+  10.4. Posts / pranešimų puslapis.<br>
