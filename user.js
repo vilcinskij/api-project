@@ -20,9 +20,8 @@ albumsWrapper.prepend(albumHeader);
 fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=albums`)
    .then(res => res.json())
    .then(user => {
-      console.log(user);
       document.title = user.name
-
+      
       const name = document.createElement('span');
       const username = document.createElement('span');
       const address = document.createElement('a');
@@ -31,7 +30,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=
       const phone = document.createElement('span');
       const website = document.createElement('span');
       const company = document.createElement('span');
-
+      
       name.textContent = `${user.name}`;
       username.textContent = `Username: ${user.username}`;
       address.textContent = `Address: ${user.address.suite} ${user.address.street}, ${user.address.city}, ${user.address.zipcode}`;
@@ -39,13 +38,13 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}?_embed=posts&_embed=
       phone.textContent = `Phone: ${user.phone}`;
       website.textContent = `Website: ${user.website}`;
       company.textContent = `Company: ${user.company.name}`;
-
+      
       user.posts.map(post => {
          const postItem = document.createElement('div');
          const postTitle = document.createElement('a');
          const postContent = document.createElement('p');
 
-         postTitle.href = '#'
+         postTitle.href = `./post.html?post_id=${post.id}`
          postTitle.textContent = post.title;
          postContent.textContent = post.body;
 

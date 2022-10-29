@@ -44,7 +44,7 @@ function init() {
                 postAuthor.textContent = userName;
                 postContent.textContent = post.body;
 
-                commentsWrapper.append(commentList)
+                commentsWrapper.append(commentList);
                 postItem.append(postTitle, postAuthor, postContent, commentsWrapper);
                 postsContainer.append(postItem);
 
