@@ -60,7 +60,6 @@ init()
 fetch('https://jsonplaceholder.typicode.com/albums?_limit=30&_embed=photos&_expand=user')
     .then(res => res.json())
     .then(albums => {
-        console.log(albums);
         albums.map(album => {
             const albumItem = document.createElement('div');
             const albumLink = document.createElement('a');
@@ -83,22 +82,3 @@ fetch('https://jsonplaceholder.typicode.com/albums?_limit=30&_embed=photos&_expa
         })
     })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function capFirs(string) {
-//     return string.charAt(0).toUpperCase() + string.slice(1);
-// }
-
-// capFirs(string)
