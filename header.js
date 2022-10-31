@@ -1,8 +1,26 @@
 const header = document.createElement('header');
 const menuList = document.createElement('ul');
 
+
+const searchForm = document.createElement('form');
+const searchBox = document.createElement('input');
+const searchSubmit = document.createElement('input');
+searchSubmit.type = 'Submit';
+searchSubmit.value = 'Search';
+
+
+searchForm.append(searchBox, searchSubmit);
+
+
 document.body.prepend(header);
-header.append(menuList);
+header.append(menuList, searchForm);
+
+
+
+searchForm.addEventListener('submit', ()=>{
+    console.log('labas');
+}
+)
 
 
 header.classList.add('d-flex', 'justify-content-center', 'py-3');
@@ -25,7 +43,7 @@ const menuItems = [
         title: 'Posts',
         path: './posts.html'
     },
-    
+
 ]
 
 function addListItems(itemsArray) {
@@ -41,8 +59,8 @@ function addListItems(itemsArray) {
 
         menuItem.classList.add('nav-item');
         itemLink.classList.add('nav-link');
-        
-        if (item.path ==  `.${document.location.pathname}`){ 
+
+        if (item.path == `.${document.location.pathname}`) {
             itemLink.classList.add('active');
         }
     })

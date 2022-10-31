@@ -24,16 +24,16 @@ function init() {
 
                 post.comments.map(comment => {
                     let commentItem = document.createElement('div');
-                    let coomentTitle = document.createElement('h5');
+                    let commentTitle = document.createElement('h5');
                     let commentAuthor = document.createElement('a');
-                    let coomenContent = document.createElement('p');
+                    let commentContent = document.createElement('p');
 
-                    coomentTitle.textContent = comment.name;
+                    commentTitle.textContent = comment.name;
                     commentAuthor.textContent = comment.email;
                     commentAuthor.href = `mailto:${comment.email}`;
-                    coomenContent.textContent = comment.body;
+                    commentContent.textContent = comment.body;
 
-                    commentItem.append(coomentTitle, commentAuthor, coomenContent)
+                    commentItem.append(commentTitle, commentAuthor, commentContent)
                     commentList.append(commentItem)
 
                     commentList.classList.add('comments-list');

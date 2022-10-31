@@ -1,8 +1,5 @@
 
 function init() {
-const queryParams = document.location.search;
-const urlParams = new URLSearchParams(queryParams);
-const search = urlParams.get('search');
 
 const searchResults = document.querySelector('#search-results');
 const searchPageTitle = document.createElement('h1');
@@ -17,10 +14,10 @@ fetch(`https://jsonplaceholder.typicode.com/users?q=${search}`)
         console.log(users)
         users.map(user => {
 
-            const userlink = document.createElement('a');
-            userlink.href = `./user.html?user_id=${user.id}`;
+            const userLink = document.createElement('a');
+            userLink.href = `./user.html?user_id=${user.id}`;
 
-            console.log(userlink);
+            console.log(userLink);
         })
     })
 
