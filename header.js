@@ -43,22 +43,9 @@ function addListItems(itemsArray) {
         itemLink.classList.add('nav-link');
         
         if (item.path ==  `.${document.location.pathname}`){ 
-            console.log('lanbas');
             itemLink.classList.add('active');
         }
     })
 }
 
-addListItems(menuItems)
-
-
-console.log(document.location);
-
-{/* <header class="d-flex justify-content-center py-3">
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Users</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Albums</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Posts</a></li>
-        </ul>
-    </header> */}
+addListItems(menuItems);

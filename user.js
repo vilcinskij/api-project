@@ -6,13 +6,15 @@ const userCard = document.querySelector('#user-card');
 const postsWrapper = document.querySelector('#posts-wrapper');
 const albumsWrapper = document.querySelector('#albums-wrapper');
 
-const postsHeader = document.createElement('h4')
+const postsHeader = document.createElement('a')
 const albumHeader = document.createElement('h4')
 const postList = document.createElement('ul');
 
 
-postsHeader.textContent = 'User posts'
-albumHeader.textContent = 'User albums'
+postsHeader.textContent = 'User posts';
+postsHeader.href = `./posts.html?user_id=${userId}`;
+
+albumHeader.textContent = 'User albums';
 
 postsWrapper.prepend(postsHeader);
 albumsWrapper.prepend(albumHeader);

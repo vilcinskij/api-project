@@ -2,9 +2,6 @@ const queryParams = document.location.search;
 const urlParams = new URLSearchParams(queryParams);
 const albumId = urlParams.get('album_id');
 
-
-// const albumId = 8;
-
 const albumCard = document.querySelector('#album-card');
 const albumPhotos = document.querySelector('#album-photos');
 
@@ -12,10 +9,7 @@ const albumPhotos = document.querySelector('#album-photos');
 fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embed=photos`)
     .then(res => res.json())
     .then(album => {
-        console.log(album);
-
         document.title = album.title
-
 
         let albumTitle = document.createElement('h2');
         let albumAuthor = document.createElement('a');
@@ -28,7 +22,8 @@ fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embe
         album.photos.map(img => {
             let albumPhoto = document.createElement('img');
             albumPhoto.src = img.thumbnailUrl;
-            albumPhotos.prepend(albumPhoto);
+            albumPhotos.append(albumPhoto);
+            console.log(img);
         })
 
     })
