@@ -5,22 +5,21 @@ const menuList = document.createElement('ul');
 const searchForm = document.createElement('form');
 const searchBox = document.createElement('input');
 const searchSubmit = document.createElement('input');
-searchSubmit.type = 'Submit';
+searchForm.action = './search.html'
+searchBox.id = 'search-input';
+searchBox.name = 'search';
+searchBox.type = 'text';
+searchSubmit.type = 'submit';
 searchSubmit.value = 'Search';
 
 
 searchForm.append(searchBox, searchSubmit);
 
+searchForm.classList.add('ms-5')
 
 document.body.prepend(header);
 header.append(menuList, searchForm);
 
-
-
-searchForm.addEventListener('submit', ()=>{
-    console.log('labas');
-}
-)
 
 
 header.classList.add('d-flex', 'justify-content-center', 'py-3');
