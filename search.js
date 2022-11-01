@@ -2,14 +2,12 @@ const queryParams = document.location.search;
 const urlParams = new URLSearchParams(queryParams);
 const search = urlParams.get('search');
 
-
 function init() {
 
     const searchResults = document.querySelector('#search-results');
     const searchPageTitle = document.createElement('h1');
     searchPageTitle.textContent = `Search results for '${search}':`;
     searchResults.append(searchPageTitle);
-
 
     fetch(`https://jsonplaceholder.typicode.com/users?q=${search}`)
         .then(res => res.json())
@@ -19,7 +17,6 @@ function init() {
             const resultsWrapperTitle = document.createElement('h2');
 
             resultsWrapperTitle.textContent = 'Users:'
-
             resultsWrapper.classList.add('card', 'mb-4');
 
             users.map(user => {
@@ -35,61 +32,52 @@ function init() {
                 resultsWrapper.append(resultsWrapperTitle, resultList);
             })
         })
-        
-        fetch(`https://jsonplaceholder.typicode.com/posts?q=${search}`)
+
+    fetch(`https://jsonplaceholder.typicode.com/posts?q=${search}`)
         .then(res => res.json())
         .then(posts => {
-            const resultsWrapper = document.createElement('div');
-            const resultList = document.createElement('ul');
-
-            const resultsWrapperTitle = document.createElement('h2');
-
-            resultsWrapperTitle.textContent = 'Posts:'
-
-            resultsWrapper.classList.add('card', 'mb-4');
-
-
-            posts.map(post => {
-
-                const userLink = document.createElement('a');
-                userLink.href = `./post.html?post_id=${post.id}`;
-                userLink.textContent = post.title;
-
-                const resultElement = document.createElement('li');
-                resultList.append(resultElement);
-                resultElement.append(userLink);
-                searchResults.append(resultsWrapper);
-                resultsWrapper.append(resultsWrapperTitle, resultList);
-            })
+            const params = {
+                data: posts,
+                parentElement: searchResults,
+                title: 'Posts',
+                path: 'post'
+            }
+            renderSearchResults(params);
         })
 
-        fetch(`https://jsonplaceholder.typicode.com/albums?q=${search}`)
+    fetch(`https://jsonplaceholder.typicode.com/albums?q=${search}`)
         .then(res => res.json())
         .then(albums => {
-            const resultsWrapper = document.createElement('div');
-            const resultList = document.createElement('ul');
-
-            const resultsWrapperTitle = document.createElement('h2');
-
-            resultsWrapperTitle.textContent = 'Albums:'
-
-            resultsWrapper.classList.add('card', 'mb-4');
-
-
-            albums.map(post => {
-
-                const userLink = document.createElement('a');
-                userLink.href = `./album.html?album_id=${post.id}`;
-                userLink.textContent = post.title;
-
-                const resultElement = document.createElement('li');
-                resultList.append(resultElement);
-                resultElement.append(userLink);
-                searchResults.append(resultsWrapper);
-                resultsWrapper.append(resultsWrapperTitle, resultList);
-            })
+            const params = {
+                data: albums,
+                parentElement: searchResults,
+                title: 'Albums',
+                path: 'album'
+            }
+            renderSearchResults(params);
         })
+}
 
+function renderSearchResults(paramsObj) {
+    let {data, title, parentElement, path} = paramsObj;
+    const resultsWrapper = document.createElement('div');
+    const resultList = document.createElement('ul');
+    const resultsWrapperTitle = document.createElement('h2');
+
+    resultsWrapperTitle.textContent = title;
+    resultsWrapper.classList.add('card', 'mb-4');
+
+    data.map(item => {
+        const resultElement = document.createElement('li');
+        const resultLink = document.createElement('a');
+        resultLink.href = `./${path}.html?${path}_id=${item.id}`;
+        resultLink.textContent = item.title;
+
+        resultElement.append(resultLink);
+        resultList.append(resultElement);
+        resultsWrapper.append(resultsWrapperTitle, resultList);
+        parentElement.append(resultsWrapper);
+    })
 }
 
 init()
