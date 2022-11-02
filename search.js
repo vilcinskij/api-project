@@ -12,37 +12,27 @@ function init() {
     fetch(`https://jsonplaceholder.typicode.com/users?q=${search}`)
         .then(res => res.json())
         .then(users => {
-            const resultsWrapper = document.createElement('div');
-            const resultList = document.createElement('ul');
-            const resultsWrapperTitle = document.createElement('h2');
 
-            resultsWrapperTitle.textContent = 'Users:'
-            resultsWrapper.classList.add('card', 'mb-4');
-
-            users.map(user => {
-
-                const userLink = document.createElement('a');
-                userLink.href = `./user.html?user_id=${user.id}`;
-                userLink.textContent = user.name;
-
-                const resultElement = document.createElement('li');
-                resultList.append(resultElement);
-                resultElement.append(userLink);
-                searchResults.append(resultsWrapper);
-                resultsWrapper.append(resultsWrapperTitle, resultList);
+            const formattedUsers = users.map(user => {
+                const formattedUser = {
+                    id: user.id,
+                    title: user.name
+                }
+                return formattedUser
             })
+
+            renderSearchResults(formattedUsers);
         })
 
     fetch(`https://jsonplaceholder.typicode.com/posts?q=${search}`)
         .then(res => res.json())
         .then(posts => {
-            const params = {
+            renderSearchResults({
                 data: posts,
                 parentElement: searchResults,
                 title: 'Posts',
                 path: 'post'
-            }
-            renderSearchResults(params);
+            });
         })
 
     fetch(`https://jsonplaceholder.typicode.com/albums?q=${search}`)
@@ -59,7 +49,7 @@ function init() {
 }
 
 function renderSearchResults(paramsObj) {
-    let {data, title, parentElement, path} = paramsObj;
+    let { data, title, parentElement, path } = paramsObj;
     const resultsWrapper = document.createElement('div');
     const resultList = document.createElement('ul');
     const resultsWrapperTitle = document.createElement('h2');
