@@ -17,7 +17,7 @@ async function renderPosts() {
     postsWrapper.id = 'posts-wrapper';
     const postsHeader = document.createElement('h4');    
     postsWrapper.classList.add('posts-wrapper', 'card');
-    postsHeader.textContent = 'Users albums';
+    postsHeader.textContent = 'Users posts';
     postsWrapper.append(postsHeader);
 
     posts.map(post => {
