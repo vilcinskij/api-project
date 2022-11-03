@@ -1,3 +1,10 @@
+import renderHeader from './header.js'
+
+renderHeader()
+
+
+
+
 const albumsWrapper = document.querySelector('#albums-wrapper');
 
 albumsWrapper.classList.add('mt-5')
@@ -5,7 +12,7 @@ albumsWrapper.classList.add('mt-5')
 fetch(`https://jsonplaceholder.typicode.com/albums/?_expand=user&_embed=photos`)
     .then(res => res.json())
     .then(albums => {
-        console.log(albums);
+        // console.log(albums);
 
         const albumsList = document.createElement('ul')
 

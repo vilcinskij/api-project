@@ -9,20 +9,20 @@ function init() {
     searchPageTitle.textContent = `Search results for '${search}':`;
     searchResults.append(searchPageTitle);
 
-    fetch(`https://jsonplaceholder.typicode.com/users?q=${search}`)
-        .then(res => res.json())
-        .then(users => {
+    // fetch(`https://jsonplaceholder.typicode.com/users?q=${search}`)
+    //     .then(res => res.json())
+    //     .then(users => {
 
-            const formattedUsers = users.map(user => {
-                const formattedUser = {
-                    id: user.id,
-                    title: user.name
-                }
-                return formattedUser
-            })
+    //         const formattedUsers = users.map(user => {
+    //             const formattedUser = {
+    //                 id: user.id,
+    //                 title: user.name
+    //             }
+    //             return formattedUser
+    //         })
 
-            renderSearchResults(formattedUsers);
-        })
+    //         renderSearchResults(formattedUsers);
+    //     })
 
     fetch(`https://jsonplaceholder.typicode.com/posts?q=${search}`)
         .then(res => res.json())
@@ -45,6 +45,13 @@ function init() {
                 path: 'album'
             }
             renderSearchResults(params);
+        })
+
+
+        const searchForm = document.querySelector('#inner-search-form')
+        searchForm.addEventListener('submit', (event)=>{
+            event.preventDefault();
+            const searcharch = event.target.elements['search-input'].value;
         })
 }
 

@@ -1,3 +1,7 @@
+import {firstLetterUpperCase} from './functions.js'
+
+firstLetterUpperCase()
+
 const queryParams = document.location.search;
 const urlParams = new URLSearchParams(queryParams);
 const userId = urlParams.get('user_id');
