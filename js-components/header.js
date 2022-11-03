@@ -6,7 +6,7 @@ function renderHeader() {
     const searchForm = document.createElement('form');
     const searchBox = document.createElement('input');
     const searchSubmit = document.createElement('input');
-    searchForm.action = './search.html'
+    searchForm.action = '../search/search.html'
     searchBox.id = 'search-input';
     searchBox.name = 'search';
     searchBox.type = 'text';
@@ -27,19 +27,19 @@ function renderHeader() {
     const menuItems = [
         {
             title: 'Home',
-            path: './index.html'
+            path: '../index.html'
         },
         {
             title: 'Users',
-            path: './users.html'
+            path: '../users/users.html'
         },
         {
             title: 'Albums',
-            path: './albums.html'
+            path: '../albums/albums.html'
         },
         {
             title: 'Posts',
-            path: './posts.html'
+            path: '../posts/posts.html'
         },
     
     ]
@@ -58,7 +58,7 @@ function renderHeader() {
             menuItem.classList.add('nav-item');
             itemLink.classList.add('nav-link');
     
-            if (item.path == `.${document.location.pathname}`) {
+            if (item.path == `..${document.location.pathname}`) {
                 itemLink.classList.add('active');
             }
         })
