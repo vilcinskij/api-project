@@ -67,4 +67,4 @@ function renderHeader() {
     addListItems(menuItems);
 }
 
-export default renderHeader;
+renderHeader()

@@ -1,4 +1,4 @@
-import {firstLetterUpperCase} from './functions.js'
+import { firstLetterUpperCase } from './functions.js'
 
 firstLetterUpperCase()
 
