@@ -1,13 +1,32 @@
-const queryParams = document.location.search;
-const urlParams = new URLSearchParams(queryParams);
-const search = urlParams.get('search');
 
 async function init() {
+    outerSearchForm()
+    innerSearchForm()
+}
 
+function outerSearchForm() {
+    const queryParams = document.location.search;
+    const urlParams = new URLSearchParams(queryParams);
+    const search = urlParams.get('search');
+    getSearchResults(search)
+}
+
+function innerSearchForm() {
+    const searchForm = document.querySelector('#inner-search-form');
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const searchInput = event.target.elements['search-input'].value;
+        getSearchResults(searchInput);
+        event.target.reset()
+    })
+}
+
+async function getSearchResults(search) {
     const searchResults = document.querySelector('#search-results');
     const searchPageTitle = document.createElement('h1');
     searchPageTitle.textContent = `Search results for '${search}':`;
     searchResults.append(searchPageTitle);
+    searchResults.innerHTML = '';
 
     const usersRes = await fetch(`https://jsonplaceholder.typicode.com/users?q=${search}`);
     const users = await usersRes.json();
@@ -15,13 +34,13 @@ async function init() {
     const postsRes = await fetch(`https://jsonplaceholder.typicode.com/posts?q=${search}`);
     const posts = await postsRes.json();
 
-    const albumsRes = await fetch(`https://jsonplaceholder.typicode.com/albums?q=${search}`)
+    const albumsRes = await fetch(`https://jsonplaceholder.typicode.com/albums?q=${search}`);
     const albums = await albumsRes.json();
 
     if (users.length < 1 && posts.length < 1 && albums.length < 1) {
         const notFoundMessage = document.createElement('h2');
         notFoundMessage.textContent = 'not found';
-        searchResults.append(notFoundMessage);        
+        searchResults.append(notFoundMessage);
     }
 
     const formattedUsers = users.map(user => {
@@ -53,14 +72,6 @@ async function init() {
         path: 'album'
     }
     renderSearchResults(params);
-
-
-
-    // const searchForm = document.querySelector('#inner-search-form')
-    // searchForm.addEventListener('submit', (event)=>{
-    //     event.preventDefault();
-    //     const searcharch = event.target.elements['search-input'].value;
-    // })
 }
 
 function renderSearchResults(paramsObj) {
