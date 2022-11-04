@@ -86,7 +86,7 @@ function renderSearchResults(paramsObj) {
     data.map(item => {
         const resultElement = document.createElement('li');
         const resultLink = document.createElement('a');
-        resultLink.href = `./${path}.html?${path}_id=${item.id}`;
+        resultLink.href = `../${path}/${path}.html?${path}_id=${item.id}`;
         resultLink.textContent = item.title;
 
         resultElement.append(resultLink);
