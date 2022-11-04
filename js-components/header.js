@@ -27,7 +27,7 @@ function renderHeader() {
     const menuItems = [
         {
             title: 'Home',
-            path: '../index.html'
+            path: './index.html'
         },
         {
             title: 'Users',
