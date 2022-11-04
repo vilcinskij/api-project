@@ -31,15 +31,15 @@ function renderHeader() {
         },
         {
             title: 'Users',
-            path: '../users/users.html'
+            path: './users/users.html'
         },
         {
             title: 'Albums',
-            path: '../albums/albums.html'
+            path: './albums/albums.html'
         },
         {
             title: 'Posts',
-            path: '../posts/posts.html'
+            path: './posts/posts.html'
         },
     
     ]
