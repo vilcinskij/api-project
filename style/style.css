@@ -19,4 +19,8 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+.comments-list .comment-item {
+  box-shadow: 2px 6px 8px 0 gray;
 }/*# sourceMappingURL=style.css.map */

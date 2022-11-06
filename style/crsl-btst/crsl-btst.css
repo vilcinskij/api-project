@@ -1,0 +1,37 @@
+.carousel-inner {
+  display: flex;
+  padding: 1em;
+}
+.carousel-inner .carousel-item {
+  display: block;
+  margin-right: 0;
+  flex: 0 0 50%;
+}
+.carousel-inner .carousel-item .card {
+  margin: 0.5em;
+  box-shadow: 2px 6px 8px 0 gray;
+}
+
+.comments-list {
+  display: flex;
+}
+
+.comment-item {
+  display: block;
+  margin-right: 0;
+  flex: 0 0 25%;
+}
+
+#albums-wrapper .card {
+  max-width: 10em;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 6vh;
+  height: 6vh;
+  background-color: #e1e1e1;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+}/*# sourceMappingURL=crsl-btst.css.map */

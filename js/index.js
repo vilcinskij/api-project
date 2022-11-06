@@ -14,13 +14,13 @@ async function init() {
 }
 
 async function renderPosts() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts?_embed=comments&_expand=user&_embed=albums')
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user&_embed=albums')
     const posts = await res.json()
 
     const postsWrapper = document.createElement('div');
     postsWrapper.id = 'posts-wrapper';
     const postsHeader = document.createElement('h4');
-    postsWrapper.classList.add('posts-wrapper', 'card');
+    postsWrapper.classList.add('posts-wrapper');
     postsHeader.textContent = 'Users posts';
     postsWrapper.append(postsHeader);
 
@@ -34,14 +34,15 @@ async function renderPosts() {
         
         postTitle.textContent = firstLetterUpperCase(post.title);
         postAuthor.textContent = post.user.name;
-        postContent.textContent = firstLetterUpperCase(post.body);
+        postContent.textContent = firstLetterUpperCase(post.body).repeat(10);
 
         const commentsWrapper = renderAllComments(post);
         
         postItem.append(postTitle, postAuthor, postContent, commentsWrapper);
         postsWrapper.append(postItem);
 
-
+        postTitle.classList.add('my-2');
+        postAuthor.classList.add('my-4');
         postItem.classList.add('card', 'm-3', 'p-3');
     })
     return postsWrapper
