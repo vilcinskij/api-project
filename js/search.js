@@ -1,3 +1,7 @@
+import renderHeader from './header.js';
+import { firstLetterUpperCase } from './functions.js';
+
+renderHeader()
 
 async function init() {
     outerSearchForm()
@@ -87,7 +91,7 @@ function renderSearchResults(paramsObj) {
         const resultElement = document.createElement('li');
         const resultLink = document.createElement('a');
         resultLink.href = `./${path}.html?${path}_id=${item.id}`;
-        resultLink.textContent = item.title;
+        resultLink.textContent = firstLetterUpperCase(item.title);
 
         resultElement.append(resultLink);
         resultList.append(resultElement);

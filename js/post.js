@@ -1,5 +1,6 @@
-import renderHeader from './header.js'
-renderHeader()
+import renderHeader from './header.js';
+import { firstLetterUpperCase } from './functions.js';
+
 
 async function init() {
     const queryParams = document.location.search;
@@ -28,8 +29,8 @@ function renderSinglePost(post, postWrapper) {
     authorPosts.href = `../posts/posts.html?user_id=${post.user.id}`
     postAuthor.textContent = post.user.name;
     postAuthor.href = `../user/user.html?user_id=${post.user.id}`;
-    postTitle.textContent = post.title;
-    postContent.textContent = post.body;
+    postTitle.textContent = firstLetterUpperCase(post.title);
+    postContent.textContent = firstLetterUpperCase(post.body) + '.';
 
     postWrapper.append(authorPosts, postTitle, postAuthor, postContent);
 }
@@ -44,10 +45,10 @@ function renderAllComments(post, postWrapper) {
         let commentAuthor = document.createElement('a');
         let commentContent = document.createElement('p');
 
-        commentTitle.textContent = comment.name;
+        commentTitle.textContent = firstLetterUpperCase(comment.name);
         commentAuthor.textContent = comment.email;
         commentAuthor.href = `mailto:${comment.email}`;
-        commentContent.textContent = comment.body;
+        commentContent.textContent = firstLetterUpperCase(comment.body) + '.';
 
         commentItem.append(commentTitle, commentAuthor, commentContent);
         commentList.append(commentItem);
@@ -60,4 +61,5 @@ function renderAllComments(post, postWrapper) {
     postWrapper.append(commentsWrapper);
 }
 
+renderHeader()
 init()

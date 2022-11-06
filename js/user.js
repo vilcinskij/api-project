@@ -1,10 +1,6 @@
-import renderHeader from './header.js'
-renderHeader()
+import renderHeader from './header.js';
+import { firstLetterUpperCase } from './functions.js';
 
-
-// import { firstLetterUpperCase } from './functions.js'
-
-// firstLetterUpperCase()
 async function init() {
    const queryParams = document.location.search;
    const urlParams = new URLSearchParams(queryParams);
@@ -58,7 +54,7 @@ function renderAlbums(albumsWrapper, user) {
       const albumTitle = document.createElement('a');
 
       albumTitle.href = `./album.html?album_id=${album.id}`
-      albumTitle.textContent = album.title;
+      albumTitle.textContent = firstLetterUpperCase(album.title);
 
       albumItem.append(albumTitle);
       albumsList.append(albumItem);
@@ -80,8 +76,8 @@ function renderPosts(postsWrapper, userId, user) {
       const postContent = document.createElement('p');
 
       postTitle.href = `./post.html?post_id=${post.id}`
-      postTitle.textContent = post.title;
-      postContent.textContent = post.body;
+      postTitle.textContent = firstLetterUpperCase(post.title);
+      postContent.textContent = firstLetterUpperCase(post.body);
 
       postItem.append(postTitle, postContent);
       postsWrapper.append(postItem);
@@ -89,5 +85,6 @@ function renderPosts(postsWrapper, userId, user) {
       postItem.classList.add('card', 'mt-4', 'p-3')
    })
 }
+renderHeader()
 
 init()

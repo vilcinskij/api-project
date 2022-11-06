@@ -1,4 +1,6 @@
-import renderHeader from './header.js'
+import renderHeader from './header.js';
+import { firstLetterUpperCase } from './functions.js';
+
 renderHeader()
 
 async function init() {   

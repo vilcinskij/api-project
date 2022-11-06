@@ -1,6 +1,5 @@
-import renderHeader from './header.js'
-
-
+import renderHeader from './header.js';
+import { firstLetterUpperCase } from './functions.js';
 
 async function init() {
     const albumsWrapper = document.querySelector('#albums-wrapper');
@@ -25,7 +24,7 @@ async function init() {
         const randomIndex = Math.floor(Math.random() * album.photos.length);
         albumCover.src = album.photos[randomIndex].thumbnailUrl;
         
-        albumTitle.textContent = album.title;
+        albumTitle.textContent = firstLetterUpperCase(album.title);
         albumAuthor.textContent = album.user.name;
         
         albumLink.append(listItemBox);

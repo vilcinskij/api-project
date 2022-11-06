@@ -1,4 +1,6 @@
-import renderHeader from './header.js'
+import renderHeader from './header.js';
+import { firstLetterUpperCase } from './functions.js';
+
 renderHeader()
 
 
@@ -17,7 +19,7 @@ async function init() {
     let albumTitle = document.createElement('h2');
     let albumAuthor = document.createElement('a');
 
-    albumTitle.textContent = album.title;
+    albumTitle.textContent = firstLetterUpperCase(album.title);
     albumAuthor.textContent = album.user.name;
     albumAuthor.href = `./user.html?user_id=${album.user.id}`;
     albumCard.append(albumTitle, albumAuthor);
