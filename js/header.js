@@ -56,7 +56,7 @@ function renderHeader() {
             menuItem.classList.add('nav-item');
             itemLink.classList.add('nav-link');
 
-            if (item.path == `..${document.location.pathname}`) {
+            if (item.path == `.${document.location.pathname}`) {
                 itemLink.classList.add('active');
             }
         })

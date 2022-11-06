@@ -1,10 +1,8 @@
 import renderHeader from './header.js';
-import { firstLetterUpperCase } from './functions.js';
+import { firstLetterUpperCase, getUrlParam } from './functions.js';
 
 async function init() {
-   const queryParams = document.location.search;
-   const urlParams = new URLSearchParams(queryParams);
-   const userId = urlParams.get('user_id');
+   const userId = getUrlParam('user_id');
 
    const userCard = document.querySelector('#user-card');
    const postsWrapper = document.querySelector('#posts-wrapper');
