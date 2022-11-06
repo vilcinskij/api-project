@@ -1,3 +1,7 @@
+import renderHeader from './header.js'
+renderHeader()
+
+
 const queryParams = document.location.search;
 const urlParams = new URLSearchParams(queryParams);
 const userId = urlParams.get('user_id');

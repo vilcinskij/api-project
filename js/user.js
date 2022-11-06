@@ -1,3 +1,7 @@
+import renderHeader from './header.js'
+renderHeader()
+
+
 // import { firstLetterUpperCase } from './functions.js'
 
 // firstLetterUpperCase()

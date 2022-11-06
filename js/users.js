@@ -1,3 +1,6 @@
+import renderHeader from './header.js'
+renderHeader()
+
 async function init() {   
     const usersWrapper = document.querySelector('#users-wrapper');
     const usersList = document.createElement('ul');

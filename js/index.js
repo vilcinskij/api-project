@@ -1,3 +1,6 @@
+import renderHeader from './header.js'
+renderHeader()
+
 async function init() {
     const contentWrapper = document.querySelector('#content-wrapper');
     const albumsWrapperElement = await renderAlbums()
@@ -93,10 +96,11 @@ async function renderAlbums() {
         albumLink.append(albumTitle)
         albumItem.append(albumCover, albumLink, albumAuthor)
         albumsWrapper.append(albumItem);
-
+        
         albumItem.classList.add('card');
     })
     return albumsWrapper
 }
 
 init()
+

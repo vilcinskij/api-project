@@ -1,3 +1,7 @@
+import renderHeader from './header.js'
+renderHeader()
+
+
 async function init() {
     const queryParams = document.location.search;
     const urlParams = new URLSearchParams(queryParams);
@@ -22,7 +26,6 @@ async function init() {
         let albumPhoto = document.createElement('img');
         albumPhoto.src = img.thumbnailUrl;
         albumPhotos.append(albumPhoto);
-        console.log(img);
     })
 
     albumCard.classList.add('card', 'mt-5');

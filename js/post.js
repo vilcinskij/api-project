@@ -1,4 +1,5 @@
-// import renderHeader from './header.js';
+import renderHeader from './header.js'
+renderHeader()
 
 async function init() {
     const queryParams = document.location.search;
@@ -6,17 +7,22 @@ async function init() {
     const postId = urlParams.get('post_id');
 
     const postWrapper = document.querySelector('#post-wrapper');
-
-    postWrapper.classList.add('mt-5');
-
+    
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}?_expand=user&_embed=comments`);
     const post = await res.json()
-    const postTitle = document.createElement('h1');
+    
+    document.title = post.title;
+    renderSinglePost(post, postWrapper);
+    renderAllComments(post, postWrapper);
+    
+    postWrapper.classList.add('mt-5');
+}
+
+function renderSinglePost(post, postWrapper) {
+    const postTitle = document.createElement('h2');
     const postAuthor = document.createElement('a');
     const postContent = document.createElement('p');
     const authorPosts = document.createElement('a');
-
-    document.title = post.title
 
     authorPosts.textContent = 'All author posts';
     authorPosts.href = `../posts/posts.html?user_id=${post.user.id}`
@@ -25,12 +31,10 @@ async function init() {
     postTitle.textContent = post.title;
     postContent.textContent = post.body;
 
-    renderAllComments(post)
-
-    postWrapper.append(authorPosts, postTitle, postAuthor, postContent, renderAllComments(post));
+    postWrapper.append(authorPosts, postTitle, postAuthor, postContent);
 }
 
-function renderAllComments(post) {
+function renderAllComments(post, postWrapper) {
     let commentsWrapper = document.createElement('div');
     let commentList = document.createElement('div');
 
@@ -53,7 +57,7 @@ function renderAllComments(post) {
     })
 
     commentsWrapper.append(commentList);
-    return commentsWrapper;
+    postWrapper.append(commentsWrapper);
 }
 
 init()
