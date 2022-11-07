@@ -50,8 +50,6 @@ async function renderPosts() {
 
 }
 
-
-
 async function renderAlbums() {
     const res = await fetch('https://jsonplaceholder.typicode.com/albums?_limit=30&_embed=photos&_expand=user');
     const albums = await res.json();

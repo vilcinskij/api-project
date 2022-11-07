@@ -13,16 +13,24 @@ export function renderAllComments(post) {
     const commentsWrapper = document.createElement('div');
     const commentList = document.createElement('div');
 
-    commentsWrapper.innerHTML = `<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-    data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-</button>
-<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-    data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-</button>`
+
+    const sliderButtonNext = document.createElement('button');
+    sliderButtonNext.classList.add('carousel-control-next');
+    sliderButtonNext.setAttribute('data-bs-target', 'carouselExampleControls');
+    sliderButtonNext.setAttribute('data-bs-slide', 'next');
+    sliderButtonNext.innerHTML = `
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>`
+
+    const sliderButtonPrev = document.createElement('button');
+    sliderButtonPrev.classList.add('carousel-control-prev');
+    sliderButtonPrev.setAttribute('data-bs-target', 'carouselExampleControls');
+    sliderButtonPrev.setAttribute('data-bs-slide', 'prev');
+    sliderButtonPrev.innerHTML = `
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Prev</span>`
+
+
 
     post.comments.map(comment => {
         const commentItem = document.createElement('div');
@@ -37,18 +45,53 @@ export function renderAllComments(post) {
 
         commentItem.append(commentTitle, commentAuthor, commentContent);
         commentList.append(commentItem);
-        commentsWrapper.prepend(commentList);
+        commentsWrapper.prepend(commentList, sliderButtonNext, sliderButtonPrev);
 
         commentList.classList.add('comments-list');
         commentItem.classList.add('card', 'm-3', 'p-3', 'comment-item');
 
-        commentList.classList.add('carousel-inner');
+        commentList.classList.add('carousel-inner', `slider-test-${post.id}`);
         commentItem.classList.add('carousel-item');
+
     })
 
+    
+    
     commentsWrapper.classList.add('commentsWrapper', 'carousel');
-    commentsWrapper.id = 'carouselExampleControls';
+    commentsWrapper.id = `carouselExampleControls-${post.id}`;
     commentsWrapper.setAttribute('data-bs-ride', 'carousel');
-
+    sliderTest(post)
+    
     return commentsWrapper;
+}
+
+
+
+function sliderTest(post) {
+    const multipleCardCarousel = document.querySelector(`#carouselExampleControls`);
+    var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+        interval: false
+    })
+
+    var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+    var cardWidth = $('.carousel-item').width();
+
+    var scrollPosition = 0;
+
+    $('.carousel-control-next').on('click', () => {
+        if (scrollPosition < (carouselWidth - (cardWidth * 4))) {
+            console.log('next');
+            console.log(`carouselExampleControls-${post.id}`);
+            scrollPosition = scrollPosition + cardWidth;
+            $(`.slider-test-${post.id}`).animate({ scrollLeft: scrollPosition }, 600)
+        }
+    });
+    $('.carousel-control-prev').on('click', () => {
+        if (scrollPosition > 0) {
+            console.log('prev');
+            console.log(`carouselExampleControls-${post.id}`);
+            scrollPosition = scrollPosition - cardWidth;
+            $(`.slider-test-${post.id}`).animate({ scrollLeft: scrollPosition }, 600)
+        }
+    });
 }

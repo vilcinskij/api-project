@@ -56,7 +56,9 @@ function renderHeader() {
             menuItem.classList.add('nav-item');
             itemLink.classList.add('nav-link');
 
-            if (item.path == `.${document.location.pathname}`) {
+            if (item.paths == `.${document.location.pathname.slice(-item.path.length)}`) {
+                console.log(-item.path.length);
+                console.log(document.location.pathname.slice(-item.path.length));
                 itemLink.classList.add('active');
             }
         })
