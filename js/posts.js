@@ -5,13 +5,16 @@ renderHeader()
 
 async function init() {
     const userId = getUrlParam('user_id');
+    const page = getUrlParam('page');
 
     let fetchUrl = '';
     if (userId) {
         fetchUrl = `https://jsonplaceholder.typicode.com/users/${userId}/posts?_expand=user`
     } else {
-        fetchUrl = `https://jsonplaceholder.typicode.com/posts`
+        fetchUrl = `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=25`
     }
+
+    console.log(page);
 
     const postsWrapper = document.querySelector('#posts-wrapper');
 
@@ -26,18 +29,6 @@ async function init() {
     const postsList = document.createElement('ul');
 
     createLinksList(posts, postsWrapper, 'post');
-
-    // posts.map(post => {
-    //     const listItem = document.createElement('li');
-    //     const listItemLink = document.createElement('a');
-    //     listItemLink.href = `./post.html?post_id=${post.id}`
-    //     listItemLink.textContent = firstLetterUpperCase(post.title);
-
-
-    //     listItem.append(listItemLink)
-    //     postsList.append(listItem)
-    // })
-
 }
 
 init()

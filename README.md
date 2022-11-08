@@ -71,3 +71,10 @@ API nuoroda: <a target="_blank" href="https://jsonplaceholder.typicode.com">http
     11.4.1. Vartotojus.<br>
     11.4.2. Postus.<br>
     11.4.2. Albumus.<br>
+
+
+  15.1. Puslapiuose, kuriuose atvaizuojami post'ai, atvaizduoti pirmus 25 post'us. Tai bus pirmas post'ų puslapis.<br>
+  15.2.
+    15.2.1. Post'ų sąrašo apačioje pridėti nuorodas, kurios leidžia perjungti kitą post'ų puslapį. Pvz. antras puslapis rodys post'us nuo 26 iki 50, trečias puslapis rodys nuo 51 iki 75 ir t.t.<br>
+    15.2.2. Puslapių nuorodų turi būti tiek, kad būtų galimybė atvaizduoti visus post'us.<br>
+    15.2.3. Galima paspausti ant visų nuorodų, išskyrus tą, kurios puslapyje šiuo metu esama.<br>
