@@ -63,8 +63,6 @@ export function renderAllComments(post) {
     return commentsWrapper;
 }
 
-
-
 function sliderTest(post) {
     const multipleCardCarousel = document.querySelector(`#carouselExampleControls`);
     var carousel = new bootstrap.Carousel(multipleCardCarousel, {
@@ -94,19 +92,27 @@ function sliderTest(post) {
     });
 }
 
-export function createLinksList(data, resultsWrapper, path) {
+export function createLinksList(paramsObj) {
+    let { data, wrapper, path, listClasses, itemsClasses } = paramsObj
+    const list = document.createElement('ul');
+    list.classList.add('list-element');
 
-    const resultList = document.createElement('ul');
-    
+    if (listClasses) { listClasses.map(elementClass => list.classList.add(elementClass)) }
+
     data.map(item => {
-        const resultElement = document.createElement('li');
-        const resultLink = document.createElement('a');
-        resultLink.href = `./${path}.html?${path}_id=${item.id}`;
-        resultLink.textContent = firstLetterUpperCase(item.title);
+        const itemElement = document.createElement('li');
+        itemElement.classList.add('list-item');
 
-        resultElement.append(resultLink);
-        resultList.append(resultElement);
-        resultsWrapper.append(resultList);
+        if (itemsClasses) { itemsClasses.map(itemClass => list.classList.add(itemClass)) }
+
+        const linkElement = document.createElement('a');
+        linkElement.href = `./${path}.html?${path}_id=${item.id}`;
+        linkElement.textContent = firstLetterUpperCase(item.title);
+
+
+        itemElement.append(linkElement);
+        list.append(itemElement);
+        wrapper.append(list);
     })
 }
 

@@ -1,5 +1,5 @@
 import renderHeader from './header.js';
-import { firstLetterUpperCase, getUrlParam } from './functions.js';
+import { createLinksList, firstLetterUpperCase, getUrlParam } from './functions.js';
 
 async function init() {
    const userId = getUrlParam('user_id');
@@ -43,22 +43,15 @@ function renderUserCard(user, userCard) {
 
 function renderAlbums(albumsWrapper, user) {
    const albumHeader = document.createElement('h4');
-   const albumsList = document.createElement('ul');
    albumHeader.textContent = 'User albums';
-   albumsWrapper.prepend(albumHeader);
-
-   user.albums.map(album => {
-      const albumItem = document.createElement('li');
-      const albumTitle = document.createElement('a');
-
-      albumTitle.href = `./album.html?album_id=${album.id}`
-      albumTitle.textContent = firstLetterUpperCase(album.title);
-
-      albumItem.append(albumTitle);
-      albumsList.append(albumItem);
-      albumsWrapper.append(albumsList);
-
-      // albumItem.classList.add('card', 'mt-4', 'p-3')
+   albumsWrapper.append(albumHeader);
+   
+   createLinksList({
+      data: user.albums,
+      wrapper: albumsWrapper, 
+      path: 'album', 
+      listClasses: ['albums-list'], 
+      itemsClasses: ['album-item'],
    })
 }
 

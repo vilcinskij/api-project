@@ -78,3 +78,7 @@ API nuoroda: <a target="_blank" href="https://jsonplaceholder.typicode.com">http
     15.2.1. Post'ų sąrašo apačioje pridėti nuorodas, kurios leidžia perjungti kitą post'ų puslapį. Pvz. antras puslapis rodys post'us nuo 26 iki 50, trečias puslapis rodys nuo 51 iki 75 ir t.t.<br>
     15.2.2. Puslapių nuorodų turi būti tiek, kad būtų galimybė atvaizduoti visus post'us.<br>
     15.2.3. Galima paspausti ant visų nuorodų, išskyrus tą, kurios puslapyje šiuo metu esama.<br>
+15.3<br>
+    15.3.1. Sukurti nuorodas pirmam ir paskutiniam puslapiu<br>
+    15.3.2. Jeigu šiuo metu esama pirmame puslapyje, tai jo nuorodos paspausti negalim<br>
+    15.3.3. Jeigu šiuo metu esama paskutiniame puslapyje, tai jo nuorodos paspausti negalim<br>

@@ -88,8 +88,15 @@ function renderSearchResults(paramsObj) {
     parentElement.append(resultsWrapper);
     resultsWrapper.append(resultsWrapperTitle);
 
-    createLinksList(data, resultsWrapper, path, resultsWrapperTitle)
-
+    const params = {
+        data,
+        wrapper: resultsWrapper,
+        path,
+        listClasses: ['search-list'],
+        itemsClasses:['search-item']
+    }
+  
+    createLinksList(params);
 }
 
 init()

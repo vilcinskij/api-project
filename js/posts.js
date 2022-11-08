@@ -1,5 +1,6 @@
+import { createLinksList, getUrlParam } from './functions.js';
 import renderHeader from './header.js';
-import { createLinksList, firstLetterUpperCase, getUrlParam } from './functions.js';
+// import createElement from './pagination.js'
 
 renderHeader()
 
@@ -25,10 +26,15 @@ async function init() {
     document.title = 'Posts'
 
     postsWrapper.append(pageTitle);
-    
-    const postsList = document.createElement('ul');
 
-    createLinksList(posts, postsWrapper, 'post');
+
+    createLinksList ({
+        data: posts,
+        wrapper: postsWrapper, 
+        path: 'post', 
+        listClasses: ['posts-list'], 
+        itemsClasses: ['post-item']
+    });
 }
 
 init()
