@@ -1,5 +1,5 @@
 import renderHeader from './header.js';
-import { firstLetterUpperCase, getUrlParam } from './functions.js';
+import { createLinksList, firstLetterUpperCase, getUrlParam } from './functions.js';
 
 renderHeader()
 
@@ -21,19 +21,23 @@ async function init() {
     pageTitle.textContent = `Posts List:`
     document.title = 'Posts'
 
+    postsWrapper.append(pageTitle);
+    
     const postsList = document.createElement('ul');
 
-    posts.map(post => {
-        const listItem = document.createElement('li');
-        const listItemLink = document.createElement('a');
-        listItemLink.href = `./post.html?post_id=${post.id}`
-        listItemLink.textContent = firstLetterUpperCase(post.title);
+    createLinksList(posts, postsWrapper, 'post');
+
+    // posts.map(post => {
+    //     const listItem = document.createElement('li');
+    //     const listItemLink = document.createElement('a');
+    //     listItemLink.href = `./post.html?post_id=${post.id}`
+    //     listItemLink.textContent = firstLetterUpperCase(post.title);
 
 
-        listItem.append(listItemLink)
-        postsList.append(listItem)
-    })
-    postsWrapper.append(pageTitle, postsList);
+    //     listItem.append(listItemLink)
+    //     postsList.append(listItem)
+    // })
+
 }
 
 init()

@@ -1,5 +1,5 @@
 import renderHeader from './header.js';
-import { firstLetterUpperCase, getUrlParam } from './functions.js';
+import { createLinksList, getUrlParam } from './functions.js';
 
 renderHeader()
 
@@ -78,24 +78,18 @@ async function getSearchResults(search) {
 
 function renderSearchResults(paramsObj) {
     let { data, title, parentElement, path } = paramsObj;
+
     const resultsWrapper = document.createElement('div');
-    const resultList = document.createElement('ul');
     const resultsWrapperTitle = document.createElement('h2');
 
     resultsWrapperTitle.textContent = title;
+
     resultsWrapper.classList.add('card', 'mb-4');
+    parentElement.append(resultsWrapper);
+    resultsWrapper.append(resultsWrapperTitle);
 
-    data.map(item => {
-        const resultElement = document.createElement('li');
-        const resultLink = document.createElement('a');
-        resultLink.href = `./${path}.html?${path}_id=${item.id}`;
-        resultLink.textContent = firstLetterUpperCase(item.title);
+    createLinksList(data, resultsWrapper, path, resultsWrapperTitle)
 
-        resultElement.append(resultLink);
-        resultList.append(resultElement);
-        resultsWrapper.append(resultsWrapperTitle, resultList);
-        parentElement.append(resultsWrapper);
-    })
 }
 
 init()

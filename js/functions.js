@@ -55,13 +55,11 @@ export function renderAllComments(post) {
 
     })
 
-    
-    
     commentsWrapper.classList.add('commentsWrapper', 'carousel');
     commentsWrapper.id = `carouselExampleControls-${post.id}`;
     commentsWrapper.setAttribute('data-bs-ride', 'carousel');
     sliderTest(post)
-    
+
     return commentsWrapper;
 }
 
@@ -79,7 +77,7 @@ function sliderTest(post) {
     var scrollPosition = 0;
 
     $('.carousel-control-next').on('click', () => {
-        if (scrollPosition < (carouselWidth - (cardWidth * 4))) {
+        if (scrollPosition < (carouselWidth - (cardWidth * 1))) {
             console.log('next');
             console.log(`carouselExampleControls-${post.id}`);
             scrollPosition = scrollPosition + cardWidth;
@@ -95,3 +93,20 @@ function sliderTest(post) {
         }
     });
 }
+
+export function createLinksList(data, resultsWrapper, path) {
+
+    const resultList = document.createElement('ul');
+    
+    data.map(item => {
+        const resultElement = document.createElement('li');
+        const resultLink = document.createElement('a');
+        resultLink.href = `./${path}.html?${path}_id=${item.id}`;
+        resultLink.textContent = firstLetterUpperCase(item.title);
+
+        resultElement.append(resultLink);
+        resultList.append(resultElement);
+        resultsWrapper.append(resultList);
+    })
+}
+
