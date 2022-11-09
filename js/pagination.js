@@ -14,6 +14,8 @@ export default function renderPaginationLinks(page) {
         content: 'First page',
         classes: 'pagination-link first-pagination-links'
     })
+    paginationWrapper.append(firstPaginationElement)
+
 
     for (let i = 1; i <= pages; i++) {
         const paginationElement = createSinglePaginationElement({
@@ -31,7 +33,7 @@ export default function renderPaginationLinks(page) {
         content: 'Last page',
         classes: 'pagination-link last-pagination-links'
     })
-    paginationWrapper.append(firstPaginationElement, lastPaginationElement)
+    paginationWrapper.append(lastPaginationElement)
     return paginationWrapper
 }
 
