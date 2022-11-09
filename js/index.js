@@ -1,13 +1,13 @@
 import renderHeader from './header.js';
-import { firstLetterUpperCase, renderAllComments } from './functions.js';
+import { createElement, firstLetterUpperCase, renderAllComments, renderSinglePost } from './functions.js';
 
 async function init() {
     const contentWrapper = document.querySelector('#content-wrapper');
     const albumsWrapperElement = await renderAlbums()
     const postsWrapperElement = await renderPosts()
-    
+
     contentWrapper.append(postsWrapperElement, albumsWrapperElement)
-    
+
     renderHeader()
     renderPosts()
     renderAlbums();
@@ -25,29 +25,16 @@ async function renderPosts() {
     postsWrapper.append(postsHeader);
 
     posts.map(post => {
-        let postItem = document.createElement('div');
-        let postTitle = document.createElement('h4');
-        let postAuthor = document.createElement('a');
-        let postContent = document.createElement('p');
 
-        postAuthor.href = `./user.html?user_id=${post.userId}`;
-        
-        postTitle.textContent = firstLetterUpperCase(post.title);
-        postAuthor.textContent = post.user.name;
-        postContent.textContent = firstLetterUpperCase(post.body).repeat(10);
+        const postItem = createElement({ tag: 'div', classes: 'post-item' })
+        const postComments = renderAllComments(post)
 
-        const commentsWrapper = renderAllComments(post);
-        
-        postItem.append(postTitle, postAuthor, postContent, commentsWrapper);
+        const postContent = renderSinglePost(post)
+
+        postItem.append(postContent, postComments);
         postsWrapper.append(postItem);
-
-        postTitle.classList.add('my-2');
-        postAuthor.classList.add('my-4');
-        postItem.classList.add('card', 'm-3', 'p-3');
     })
     return postsWrapper
-
-
 }
 
 async function renderAlbums() {

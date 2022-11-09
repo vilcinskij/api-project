@@ -86,17 +86,15 @@ function renderSearchResults(paramsObj) {
 
     resultsWrapper.classList.add('card', 'mb-4');
     parentElement.append(resultsWrapper);
-    resultsWrapper.append(resultsWrapperTitle);
-
-    const params = {
+        
+    const postsListElement = createLinksList({
         data,
-        wrapper: resultsWrapper,
         path,
         listClasses: ['search-list'],
         itemsClasses:['search-item']
-    }
-  
-    createLinksList(params);
+    });
+
+    resultsWrapper.append(resultsWrapperTitle, postsListElement);
 }
 
 init()

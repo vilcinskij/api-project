@@ -14,23 +14,21 @@ export function renderAllComments(post) {
     const commentList = document.createElement('div');
 
 
-    const sliderButtonNext = document.createElement('button');
-    sliderButtonNext.classList.add('carousel-control-next');
-    sliderButtonNext.setAttribute('data-bs-target', 'carouselExampleControls');
-    sliderButtonNext.setAttribute('data-bs-slide', 'next');
-    sliderButtonNext.innerHTML = `
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>`
+    // const sliderButtonNext = document.createElement('button');
+    // sliderButtonNext.classList.add('carousel-control-next');
+    // sliderButtonNext.setAttribute('data-bs-target', 'carouselExampleControls');
+    // sliderButtonNext.setAttribute('data-bs-slide', 'next');
+    // sliderButtonNext.innerHTML = `
+    //     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    //     <span class="visually-hidden">Next</span>`
 
-    const sliderButtonPrev = document.createElement('button');
-    sliderButtonPrev.classList.add('carousel-control-prev');
-    sliderButtonPrev.setAttribute('data-bs-target', 'carouselExampleControls');
-    sliderButtonPrev.setAttribute('data-bs-slide', 'prev');
-    sliderButtonPrev.innerHTML = `
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Prev</span>`
-
-
+    // const sliderButtonPrev = document.createElement('button');
+    // sliderButtonPrev.classList.add('carousel-control-prev');
+    // sliderButtonPrev.setAttribute('data-bs-target', 'carouselExampleControls');
+    // sliderButtonPrev.setAttribute('data-bs-slide', 'prev');
+    // sliderButtonPrev.innerHTML = `
+    //         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    //         <span class="visually-hidden">Prev</span>`
 
     post.comments.map(comment => {
         const commentItem = document.createElement('div');
@@ -45,7 +43,8 @@ export function renderAllComments(post) {
 
         commentItem.append(commentTitle, commentAuthor, commentContent);
         commentList.append(commentItem);
-        commentsWrapper.prepend(commentList, sliderButtonNext, sliderButtonPrev);
+        commentsWrapper.prepend(commentList);
+        // commentsWrapper.prepend(sliderButtonNext, sliderButtonPrev);
 
         commentList.classList.add('comments-list');
         commentItem.classList.add('card', 'm-3', 'p-3', 'comment-item');
@@ -93,7 +92,7 @@ function sliderTest(post) {
 }
 
 export function createLinksList(paramsObj) {
-    let { data, wrapper, path, listClasses, itemsClasses } = paramsObj
+    let { data, path, listClasses, itemsClasses } = paramsObj
     const list = document.createElement('ul');
     list.classList.add('list-element');
 
@@ -112,7 +111,46 @@ export function createLinksList(paramsObj) {
 
         itemElement.append(linkElement);
         list.append(itemElement);
-        wrapper.append(list);
     })
+    return list
 }
 
+export function renderSinglePost(post) {
+    const postTitle = document.createElement('h2');
+    const postAuthor = document.createElement('a');
+    const postContentElement = document.createElement('p');
+
+    postAuthor.textContent = post.user.name;
+    postAuthor.href = `./user.html?user_id=${post.user.id}`;
+    postTitle.textContent = firstLetterUpperCase(post.title);
+    postContentElement.textContent = firstLetterUpperCase(post.body) + '.';
+
+    const postContent = document.createElement('div')
+
+    postContent.append(postTitle, postAuthor, postContentElement);
+
+    return postContent
+}
+
+export function renderLinkElement(post) {
+    const link = document.createElement('a');
+    link.textContent = 'All author posts';
+    link.href = `./posts.html?user_id=${post.user.id}`;
+    return link
+}
+
+export async function fetchData(url) {
+    const res = await fetch(url);
+    const result = await res.json();
+    return result
+}
+
+export function createElement(paramsObj) {
+    let { tag, content, classes, href } = paramsObj
+    const element = document.createElement(tag);
+    element.textContent = content;
+    if (classes) { element.className = classes };
+    if (href) { element.href = href };
+
+    return element
+}

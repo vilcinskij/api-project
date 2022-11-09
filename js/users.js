@@ -17,12 +17,12 @@ async function init() {
         return userObj
     })
     
-    createLinksList({
+    const usersList = createLinksList({
         data: usersData,
-        wrapper: usersWrapper,
         path: 'user',
         listClasses: ['users-list'],
         itemsClasses: ['user-item'],
     })
+    usersWrapper.append(usersList)
 }
 init()

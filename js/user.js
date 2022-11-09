@@ -44,16 +44,16 @@ function renderUserCard(user, userCard) {
 function renderAlbums(albumsWrapper, user) {
    const albumHeader = document.createElement('h4');
    albumHeader.textContent = 'User albums';
-   albumsWrapper.append(albumHeader);
    
-   createLinksList({
+   const albumsList = createLinksList({
       data: user.albums,
-      wrapper: albumsWrapper, 
       path: 'album', 
       listClasses: ['albums-list'], 
       itemsClasses: ['album-item'],
    })
+   albumsWrapper.append(albumHeader, albumsList);
 }
+
 
 function renderPosts(postsWrapper, userId, user) {
    const postsHeader = document.createElement('a');

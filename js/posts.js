@@ -1,10 +1,10 @@
-import { createLinksList, getUrlParam } from './functions.js';
+import { createElement, createLinksList, fetchData, getUrlParam } from './functions.js';
 import renderHeader from './header.js';
-// import createElement from './pagination.js'
+import renderPaginationLinks from './pagination.js';
 
-renderHeader()
 
 async function init() {
+    document.title = 'Posts'
     const userId = getUrlParam('user_id');
     const page = getUrlParam('page');
 
@@ -12,29 +12,32 @@ async function init() {
     if (userId) {
         fetchUrl = `https://jsonplaceholder.typicode.com/users/${userId}/posts?_expand=user`
     } else {
-        fetchUrl = `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=25`
+        fetchUrl = `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=20`
     }
 
-    console.log(page);
-
+    const posts = await fetchData(fetchUrl);
     const postsWrapper = document.querySelector('#posts-wrapper');
 
-    const res = await fetch(fetchUrl)
-    const posts = await res.json()
-    const pageTitle = document.createElement('h1');
-    pageTitle.textContent = `Posts List:`
-    document.title = 'Posts'
+    const pageTitle = createElement({
+        tag: 'div',
+        content: `Posts List:`,
+        classes: 'page-title'
+    })
 
-    postsWrapper.append(pageTitle);
-
-
-    createLinksList ({
+    const postsList = createLinksList({
         data: posts,
-        wrapper: postsWrapper, 
-        path: 'post', 
-        listClasses: ['posts-list'], 
+        wrapper: postsWrapper,
+        path: 'post',
+        listClasses: ['posts-list'],
         itemsClasses: ['post-item']
     });
+
+    const pagination = renderPaginationLinks(page)
+
+    postsWrapper.append(pageTitle, pagination, postsList);
+
+    renderHeader()
 }
+
 
 init()

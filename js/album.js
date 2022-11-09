@@ -1,16 +1,15 @@
 import renderHeader from './header.js';
-import { firstLetterUpperCase, getUrlParam } from './functions.js';
+import { fetchData, firstLetterUpperCase, getUrlParam } from './functions.js';
 
 renderHeader()
 
 async function init() {
-    const albumId = getUrlParam('album_id')
+    const albumId = getUrlParam('album_id');
+    const album = await fetchData(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embed=photos`);
 
     const albumCard = document.querySelector('#album-card');
     const albumPhotos = document.querySelector('#album-photos');
 
-    const res = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embed=photos`);
-    const album = await res.json();
     document.title = firstLetterUpperCase(album.title);
 
     let albumTitle = document.createElement('h2');
